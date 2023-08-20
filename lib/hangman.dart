@@ -57,7 +57,7 @@ class _HangManGameState extends State<HangManGame> {
         );
         reset();
       }
-      else if(falseCount==6){
+      else if(falseCount==5){
         showDialog(
             context: context,
             builder: (BuildContext context) {
@@ -110,28 +110,24 @@ class _HangManGameState extends State<HangManGame> {
           rVisible=true;
         }
         else{
-          if(text=='A'||text=='B'||text=='C'||text=='D'||text=='G'||text=='H'||
-              text=='I'||text=='J'||text=='K'||text=='M'||text=='N'||text=='O'||
-              text=='P'||text=='Q'||text=='S'||text=='V'||text=='W'||text=='X'||text=='Y'||text=='Z'){
-            falseCount++;
-            if(isHeadvisible==false){
-              isHeadvisible=true;
-            }
-            else if(isBodyvisible==false){
-              isBodyvisible=true;
-            }
-            else if(isLeftHandvisible==false){
-              isLeftHandvisible=true;
-            }
-            else if(isRightHandvisible==false){
-              isRightHandvisible=true;
-            }
-            else if(isLeftLegvisible==false){
-              isLeftLegvisible=true;
-            }
-            else if(isRightLegvisible==false){
-              isRightLegvisible=true;
-            }
+          falseCount++;
+          if(falseCount==1){
+            isHeadvisible=true;
+          }
+          else if(falseCount==2){
+            isBodyvisible=true;
+          }
+          else if(falseCount==3){
+            isLeftLegvisible=true;
+          }
+          else if(falseCount==4){
+            isRightLegvisible=true;
+          }
+          else if(falseCount==5){
+            isLeftHandvisible=true;
+          }
+          else if(falseCount==6){
+            isRightHandvisible=true;
           }
         }
       }
